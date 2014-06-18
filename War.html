@@ -9,15 +9,17 @@
         for (r = 1; r <= 13; r++) {
           var newCard = new Card(r,s);
           this.cards.push(newCard);
+          newCard.deck = this;
         }
       }
     }
   }
 
-  function Card(rank, suit) {
+  function Card(rank, suit, deck) {
     this.rank = rank;
     this.suit = suit;
     this.name = this.rank + " of " + this.suit;
+    this.deck = deck;
     this.show = function() {
       console.log(this.name);
     }
